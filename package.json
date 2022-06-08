@@ -1,6 +1,7 @@
 {
   "name": "my-vue-app",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,9 +12,12 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.20.7",
+    "classnames": "^2.3.1",
+    "hox": "2.0.0-alpha.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "screenfull": "^6.0.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.39",
@@ -29,7 +33,6 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "normalize.css": "^8.0.1",
-    "postcss": "^8.4.14",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.6.2",
     "typescript": "^4.6.3",

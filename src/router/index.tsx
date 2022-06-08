@@ -1,24 +1,40 @@
 import { FC } from 'react'
-import { RouteObject, useRoutes } from 'react-router-dom'
-import { Layout } from '@/components'
-import { DashBoard } from '@/pages'
+import { Layout, RouterPermission } from '@/components'
+import { RouteConfig, RouteMata } from '@/types'
+import NotFound from '@/pages/not-found'
+import Login from '@/pages/login'
 
-const routes: RouteObject[] = [
+const routes: RouteConfig[] = [
   {
     path: '/',
     element: <Layout />,
     children: [
       {
-        path: '',
-        element: <DashBoard />
+        path: 'dashboard',
+        component: () => import('@/pages/dashboard')
       }
     ]
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '*',
+    element: <NotFound />
   }
 ]
 
 const RenderRouter: FC = () => {
-  const element = useRoutes(routes)
-  return element
+  return (
+    <RouterPermission
+      routes={routes}
+      onRouteBefore={({ pathname, mate }: { pathname: string; mate: RouteMata }) => {
+        console.log('pathname', pathname)
+        console.log('mate', mate)
+      }}
+    />
+  )
 }
 
 export default RenderRouter

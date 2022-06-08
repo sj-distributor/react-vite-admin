@@ -3,21 +3,22 @@ import { Outlet } from 'react-router-dom'
 import { Layout as AntdLayout } from 'antd'
 import styles from './index.module.css'
 import { Sider } from './components/sider'
+import { Header } from './components/header'
+import { useAppStore } from '@/store/app'
 
-const { Header, Footer, Content } = AntdLayout
+const { Content } = AntdLayout
 
 export const Layout: FC = () => {
+  const { collapsed, toggleCollapsed } = useAppStore()
+
   return (
     <AntdLayout className={styles.appLayout}>
-      <Sider />
+      <Sider collapsed={collapsed} />
       <AntdLayout>
-        <Header>Header</Header>
+        <Header collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
         <Content>
-          <div>
-            <Outlet />
-          </div>
+          <Outlet />
         </Content>
-        <Footer>Footer</Footer>
       </AntdLayout>
     </AntdLayout>
   )

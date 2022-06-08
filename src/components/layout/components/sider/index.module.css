@@ -1,0 +1,18 @@
+:global(.ant-menu) {
+  background-color: var(--sider-bg-color) !important;
+
+  &:global(.ant-menu-sub) {
+    background-color: var(--sider-lighten-bg-color);
+  }
+}
+.app-sider {
+  background-color: var(--sider-bg-color);
+
+  .app-menu {
+    :global(.ant-menu-item) {
+      :global(.anticon) {
+        font-size: 16px;
+      }
+    }
+  }
+}
